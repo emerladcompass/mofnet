@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOFNet Dashboard</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { box-sizing: border-box; }
+    .smooth-scroll { scroll-behavior: smooth; }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+</head>
+<body class="h-full">
+<div id="app" class="w-full h-full overflow-auto">
+  <nav id="nav" class="w-full py-4 px-6 shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <svg width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="8" id="logo-bg" />
+          <path d="M20 10V30M10 20H30" id="logo-cross" stroke-width="3" stroke-linecap="round" />
+        </svg>
+        <div>
+          <div id="hospital-name" class="text-xl font-bold">MOFNet</div>
+          <div id="tagline" class="text-sm opacity-80">Testing across 4 tertiary care centers</div>
+        </div>
+      </div>
+      <button id="cta-nav-button" class="px-6 py-2 rounded-lg font-semibold transition-colors">View Documentation</button>
+    </div>
+  </nav>
+
+  <header id="hero" class="w-full py-20 px-6">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 id="hero-heading" class="text-5xl font-bold mb-4">Clinically Validated</h1>
+      <p id="hero-subheading" class="text-xl mb-8 opacity-90">Lead Time: 11.3h | AUC: 0.893</p>
+      <button id="cta-button" class="px-8 py-4 rounded-lg text-lg font-semibold shadow-lg transition-all hover:shadow-xl hover:scale-105">Install via PyPI</button>
+    </div>
+  </header>
+
+  <section id="services" class="w-full py-16 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 id="services-heading" class="text-4xl font-bold text-center mb-12">Performance Metrics</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Early MOF Detection Sensitivity -->
+        <div class="service-card p-8 rounded-xl shadow-lg transition-transform hover:scale-105">
+          <div class="mb-4 flex justify-center items-center">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 42S12 30 12 18C12 12 18 8 24 12C30 8 36 12 36 18C36 30 24 42 24 42Z" fill="#3B82F6"/>
+              <path d="M24 18V28M18 24H30" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 id="service-1-title" class="text-2xl font-bold mb-3">87.9%</h3>
+          <p id="service-1-desc" class="opacity-80">Early MOF Detection Sensitivity</p>
+        </div>
+
+        <!-- Patients Validated -->
+        <div class="service-card p-8 rounded-xl shadow-lg transition-transform hover:scale-105">
+          <div class="mb-4 flex justify-center items-center">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="12" y="10" width="24" height="28" rx="4" fill="#10B981"/>
+              <path d="M16 20H32M16 28H32M16 36H28" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 id="service-2-title" class="text-2xl font-bold mb-3">1,328</h3>
+          <p id="service-2-desc" class="opacity-80">Patients Validated</p>
+        </div>
+
+        <!-- Early Warning Time -->
+        <div class="service-card p-8 rounded-xl shadow-lg transition-transform hover:scale-105">
+          <div class="mb-4 flex justify-center items-center">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="20" stroke="#F59E0B" stroke-width="3"/>
+              <path d="M24 12V24L32 28" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 id="service-3-title" class="text-2xl font-bold mb-3">11.3h</h3>
+          <p id="service-3-desc" class="opacity-80">Median Early Warning Time</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="w-full py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 id="about-heading" class="text-4xl font-bold mb-6">About MOFNet</h2>
+      <p id="about-text" class="text-lg opacity-90 leading-relaxed">
+        Network-based ICU monitoring system predicting Multi-Organ Failure by analyzing inter-organ communication, Node Vulnerability Index (NVI), and early alert guidance.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact" class="w-full py-16 px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 id="contact-heading" class="text-4xl font-bold text-center mb-12">Institutional Info</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Network / Physiological Nodes -->
+        <div class="contact-card p-6 rounded-xl text-center">
+          <div class="mb-4 flex justify-center items-center">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="2" x2="12" y2="22"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+            </svg>
+          </div>
+          <h3 id="phone-label" class="font-bold text-lg mb-2">Network</h3>
+          <p id="phone-number" class="opacity-80">Physiological Nodes</p>
+        </div>
+
+        <!-- Email -->
+        <div class="contact-card p-6 rounded-xl text-center">
+          <div class="mb-4 flex justify-center items-center">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4H20V20H4V4Z"/>
+              <polyline points="4,4 12,14 20,4"/>
+            </svg>
+          </div>
+          <h3 id="email-label" class="font-bold text-lg mb-2">Email</h3>
+          <p id="email-address" class="opacity-80">info@mofnet.org</p>
+        </div>
+
+        <!-- Status -->
+        <div class="contact-card p-6 rounded-xl text-center">
+          <div class="mb-4 flex justify-center items-center">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L15 8H21L16.5 12L18 18L12 14L6 18L7.5 12L3 8H9L12 2Z"/>
+            </svg>
+          </div>
+          <h3 id="address-label" class="font-bold text-lg mb-2">Status</h3>
+          <p id="address-text" class="opacity-80">Research Grade</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+   <!-- FOOTER MODIFIED -->
+  <footer id="footer" class="w-full py-8 px-6 text-center">
+    <p id="footer-text" class="opacity-70 mb-2">© 2026 MOFNet. All rights reserved.</p>
+    <p class="mb-2">
+      <a href="https://emeraldcompass.github.io/mofnet/" style="color: #003399; text-decoration: none; margin: 0 0.5rem;">Documentation</a> |
+      <a href="https://pypi.org/project/mofnet/" style="color: #003399; text-decoration: none; margin: 0 0.5rem;">PyPI</a> |
+      <a href="https://github.com/emerladcompass/OSEF-Framework" style="color: #003399; text-decoration: none; margin: 0 0.5rem;">GitHub</a>
+    </p>
+    <p style="font-size: 0.9rem; color: #7f8c8d;">Designed by Emerald Compass Team</p>
+  </footer>
+</div>
+
+<script>
+const defaultConfig = {
+  background_color: "#f0f9ff",
+  nav_color: "#ffffff",
+  primary_action_color: "#003399",
+  text_color: "#1e293b",
+  surface_color: "#ffffff",
+  hospital_name: "MOFNet",
+  tagline: "Testing across 4 tertiary care centers",
+  hero_heading: "Clinically Validated",
+  hero_subheading: "Lead Time: 11.3h | AUC: 0.893",
+  cta_button: "View Documentation",
+  services_heading: "Performance Metrics",
+  service_1_title: "87.9%",
+  service_1_desc: "Early MOF Detection Sensitivity",
+  service_2_title: "1,328",
+  service_2_desc: "Patients Validated",
+  service_3_title: "11.3h",
+  service_3_desc: "Median Early Warning Time",
+  about_heading: "About MOFNet",
+  about_text: "Network-based ICU monitoring system predicting Multi-Organ Failure by analyzing inter-organ communication, Node Vulnerability Index (NVI), and early alert guidance.",
+  contact_heading: "Institutional Info",
+  phone_label: "Network",
+  phone_number: "Physiological Nodes",
+  email_label: "Email",
+  email_address: "info@mofnet.org",
+  address_label: "Status",
+  address_text: "Research Grade",
+  footer_text: "© 2026 MOFNet Project. All rights reserved.",
+  font_family: "Inter",
+  font_size: 16
+};
+
+function onConfigChange(config) {
+  config = config || defaultConfig;
+
+  Object.keys(config).forEach(key => {
+    if(config[key] !== undefined){
+      defaultConfig[key] = config[key];
+    }
+  });
+
+  document.getElementById('app').style.backgroundColor = config.background_color;
+  document.getElementById('nav').style.backgroundColor = config.nav_color;
+  document.getElementById('hero').style.backgroundColor = config.surface_color;
+  document.getElementById('services').style.backgroundColor = config.background_color;
+  document.getElementById('about').style.backgroundColor = config.surface_color;
+  document.getElementById('contact').style.backgroundColor = config.background_color;
+  document.getElementById('footer').style.backgroundColor = config.nav_color;
+
+  document.getElementById('logo-bg').style.fill = config.primary_action_color;
+  document.getElementById('logo-cross').style.stroke = config.surface_color;
+
+  const buttons = [document.getElementById('cta-nav-button'), document.getElementById('cta-button')];
+  buttons.forEach(btn => {
+    btn.style.backgroundColor = config.primary_action_color;
+    btn.style.color = config.surface_color;
+  });
+
+  document.getElementById('hospital-name').style.color = config.text_color;
+  document.getElementById('tagline').style.color = config.text_color;
+  document.getElementById('hero-heading').style.color = config.primary_action_color;
+  document.getElementById('hero-subheading').style.color = config.text_color;
+  document.getElementById('services-heading').style.color = config.text_color;
+  
+  document.getElementById('hospital-name').textContent = config.hospital_name;
+  document.getElementById('tagline').textContent = config.tagline;
+  document.getElementById('hero-heading').textContent = config.hero_heading;
+  document.getElementById('hero-subheading').textContent = config.hero_subheading;
+  document.getElementById('cta-button').textContent = config.cta_button;
+  document.getElementById('cta-nav-button').textContent = config.cta_button;
+  document.getElementById('services-heading').textContent = config.services_heading;
+  document.getElementById('service-1-title').textContent = config.service_1_title;
+  document.getElementById('service-1-desc').textContent = config.service_1_desc;
+  document.getElementById('service-2-title').textContent = config.service_2_title;
+  document.getElementById('service-2-desc').textContent = config.service_2_desc;
+  document.getElementById('service-3-title').textContent = config.service_3_title;
+  document.getElementById('service-3-desc').textContent = config.service_3_desc;
+  document.getElementById('about-heading').textContent = config.about_heading;
+  document.getElementById('about-text').textContent = config.about_text;
+  document.getElementById('contact-heading').textContent = config.contact_heading;
+  document.getElementById('phone-label').textContent = config.phone_label;
+  document.getElementById('phone-number').textContent = config.phone_number;
+  document.getElementById('email-label').textContent = config.email_label;
+  document.getElementById('email-address').textContent = config.email_address;
+  document.getElementById('address-label').textContent = config.address_label;
+  document.getElementById('address-text').textContent = config.address_text;
+  document.getElementById('footer-text').textContent = config.footer_text;
+}
+
+onConfigChange();
+
+if (window.elementSdk) {
+  window.elementSdk.init({
+    defaultConfig,
+    onConfigChange,
+    mapToCapabilities: (cfg) => ({ recolorables: [], fontEditable: {get:()=>cfg.font_family, set:(v)=>{}}, fontSizeable: {get:()=>cfg.font_size, set:(v)=>{}} }),
+    mapToEditPanelValues: (cfg) => new Map(Object.entries(cfg))
+  });
+}
+</script>
+</body>
+</html>

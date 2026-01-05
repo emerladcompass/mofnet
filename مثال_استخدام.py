@@ -17,7 +17,7 @@ print("🏥 تقرير تحليل المرونة الفسيولوجية")
 print("=" * 50)
 
 for مريض in المرضى:
-    pri = mofnet.calculate_pri_from_dict(مريض["علامات"])
+    pri = mofnet.calculate_pri(مريض["علامات"])
     تصنيف = mofnet.classify_pri_level(pri)
     
     print(f"\n👤 المريض: {مريض['اسم']}")
