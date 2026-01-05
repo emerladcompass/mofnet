@@ -1,9 +1,11 @@
 """
 MOFNet - Multi-Organ Failure Network
+Medical system for early prediction of multi-organ failure
 """
 
 __version__ = "1.0.2"
 __author__ = "Samir Baladi"
+__email__ = "emerladcompass@gmail.com"
 
 def calculate_pri(heart_rate, sbp, dbp, rr, spo2):
     """
@@ -79,4 +81,16 @@ def calculate_pri_from_dict(vitals_dict):
         vitals_dict.get('spo2')
     )
 
+# Import ML module (will be added if exists)
+try:
+    from .termux_ml import MOFNetPredictor, SimpleLinearRegression, SimpleDecisionTree
+    ML_AVAILABLE = True
+except ImportError:
+    ML_AVAILABLE = False
+    MOFNetPredictor = None
+    SimpleLinearRegression = None
+    SimpleDecisionTree = None
+
 print(f"🏥 MOFNET v{__version__} loaded successfully")
+if ML_AVAILABLE:
+    print("🤖 ML Module loaded successfully")

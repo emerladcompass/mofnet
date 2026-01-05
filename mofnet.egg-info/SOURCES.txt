@@ -3,6 +3,7 @@ CONTRIBUTING.md
 LICENSE
 MANIFEST.in
 README.md
+pyproject.toml
 requirements.txt
 setup.py
 deployment/clinical_integration/fhir_adapter.py
@@ -21,6 +22,8 @@ examples/visualization_demo.py
 mofnet/__init__.py
 mofnet/__version__.py
 mofnet/cli.py
+mofnet/simple_predictor.py
+mofnet/termux_ml.py
 mofnet.egg-info/PKG-INFO
 mofnet.egg-info/SOURCES.txt
 mofnet.egg-info/dependency_links.txt
