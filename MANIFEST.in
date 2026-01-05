@@ -1,0 +1,10 @@
+include LICENSE
+include README.md
+include requirements.txt
+include AUTHORS.md
+include CONTRIBUTING.md
+include data/.csv
+include data/.md
+include docs/*.md
+recursive-include deployment *.py *.yaml
+recursive-include examples *.py

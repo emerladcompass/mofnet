@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: mmp
+Version: 1.0.2
+Author: Samir Baladi
+License-File: LICENSE
+License-File: AUTHORS.md
+Dynamic: author
+Dynamic: license-file

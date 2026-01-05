@@ -1,0 +1,6 @@
+# Required for visualization_demo.py
+matplotlib>=3.5.0
+numpy>=1.21.0
+
+# mofnet library itself
+mofnet>=1.0.3
