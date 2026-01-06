@@ -187,6 +187,71 @@ trajectory_fig.show()
 ```
 
 ---
+## 📦 Downloads
+
+<div align="center">
+
+### Latest Release: v1.0.2
+
+<table>
+<tr>
+<td align="center" width="50%">
+
+### 🌐 Progressive Web App
+
+<img src="./docs/images/mofnet-qr-pwa.png" alt="PWA QR" width="200">
+
+**Recommended for most users**
+
+✅ Works on all platforms  
+✅ Auto-updates  
+✅ No installation needed  
+
+[Install PWA →](https://mofnet.netlify.app/)
+
+</td>
+<td align="center" width="50%">
+
+### 📦 Android APK
+
+<img src="./docs/images/mofnet-qr-apk-direct.png" alt="APK QR" width="200">
+
+**For offline use**
+
+✅ Full offline support  
+✅ Direct installation  
+✅ No Google Play required  
+
+[Download APK →](https://github.com/emerladcompass/mofnet/releases/latest)
+
+</td>
+</tr>
+</table>
+
+---
+
+### 📊 Download Stats
+
+![GitHub release](https://img.shields.io/github/v/release/emerladcompass/mofnet?style=for-the-badge)
+![GitHub downloads](https://img.shields.io/github/downloads/emerladcompass/mofnet/total?style=for-the-badge)
+![GitHub release date](https://img.shields.io/github/release-date/emerladcompass/mofnet?style=for-the-badge)
+
+</div>
+
+---
+
+## 🔐 Verify Your Download
+
+After downloading the APK, verify its authenticity:
+
+```bash
+# Expected SHA256:
+a1b2c3d4e5f6... (copy from release page)
+
+# Verify on your device:
+sha256sum mofnet-v1.0.2.apk
+
+---
 
 ## 🏗️ Architecture
 
