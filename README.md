@@ -48,6 +48,10 @@
 [![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macOS%20%7C%20windows-lightgrey?style=flat-square)](https://github.com/emerladcompass/mofnet)
 [![Docker](https://img.shields.io/badge/docker-supported-2496ED?style=flat-square&logo=docker&logoColor=white)](https://hub.docker.com/r/mofnet/mofnet)
 
+<!-- PWA Badge -->
+[![PWA](https://img.shields.io/badge/PWA-ready-success?style=flat-square&logo=pwa&logoColor=white)](https://mofnet.netlify.app/)
+[![Installable](https://img.shields.io/badge/installable-yes-blue?style=flat-square&logo=google-chrome)](https://mofnet.netlify.app/)
+
 **Network-Based Early Warning System for Multi-Organ Failure in Intensive Care Units**
 
 </div>
