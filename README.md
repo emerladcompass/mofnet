@@ -101,6 +101,45 @@ pip install -e .
 docker pull mofnet/mofnet:latest
 docker run -p 8080:8080 mofnet/mofnet:latest
 ```
+---
+
+## 📱 Progressive Web App (PWA)
+
+MOFNet is available as a Progressive Web App for mobile and desktop devices.
+
+### **Install PWA**
+
+#### Android / Chrome:
+1. Visit [https://mofnet.netlify.app/](https://mofnet.netlify.app/)
+2. Tap the menu (⋮) → **"Install app"** or **"Add to Home screen"**
+3. Launch MOFNet from your home screen
+
+#### iOS / Safari:
+1. Visit [https://mofnet.netlify.app/](https://mofnet.netlify.app/)
+2. Tap Share button (□↑) → **"Add to Home Screen"**
+3. Tap **"Add"**
+
+#### Desktop (Chrome/Edge):
+1. Visit [https://mofnet.netlify.app/](https://mofnet.netlify.app/)
+2. Click the install icon (⊕) in the address bar
+3. Click **"Install"**
+
+### **PWA Features**
+- ✅ **Offline Access** - Works without internet connection
+- ✅ **Native-Like Experience** - Fullscreen, fast, app-like
+- ✅ **Auto Updates** - Always up-to-date
+- ✅ **Push Notifications** - Real-time MOF alerts (coming soon)
+- ✅ **Cross-Platform** - Android, iOS, Windows, macOS, Linux
+
+### **Screenshots**
+
+<div align="center">
+
+| Home Screen | Network Visualization | Clinical Dashboard |
+|:-----------:|:---------------------:|:------------------:|
+| ![Home](./docs/images/pwa-home.png) | ![Network](./docs/images/pwa-network.png) | ![Dashboard](./docs/images/pwa-dashboard.png) |
+
+</div>
 
 ---
 
