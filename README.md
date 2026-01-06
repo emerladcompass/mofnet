@@ -257,7 +257,6 @@ sha256sum mofnet-v1.0.2.apk
 
 ### Core Components
 
-```
 MOFNet/
 ├── 📦 **Core Package** (`mofnet/`)
 │   ├── ml_models/               # Trained machine learning models
@@ -339,7 +338,6 @@ MOFNet/
     ├── interactive_cli.py     # Interactive CLI tool
     ├── ml_example.py          # ML model demonstration
     └── my_analysis.py         # Custom analysis scripts
-```
 
 ### Network Construction Pipeline
 
