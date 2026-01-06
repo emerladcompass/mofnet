@@ -197,7 +197,8 @@ MOFNet/
 ├── 📦 **Core Package** (`mofnet/`)
 │   ├── ml_models/               # Trained machine learning models
 │   ├── __init__.py              # Package initialization
-│   ├── __version__.py           # Version information
+│   ├── __version__.py.     # Version
+│   ├── CHANGELOG.md        # documented information 
 │   ├── cli.py                   # Command-line interface
 │   ├── simple_predictor.py      # Basic prediction algorithms
 │   └── termux_ml.py             # ML optimizations for Termux
