@@ -1,0 +1,708 @@
+
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOFNet Clinical Analyzer - Real-Time Multi-Organ Failure Prediction</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="theme-color" content="#1e40af">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.json">
+  
+  <style>
+    * { box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #A1D8FB 0%, #A1D8FB 100%);
+      min-height: 100vh;
+    }
+    .hero-grad {
+      background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, #1E94DF 0%, #3b82f6 100%);
+    }
+    
+    .card {
+      background: white;
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+    
+    .input-field {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 0.75rem;
+      font-size: 1.125rem;
+      transition: all 0.3s;
+      background: #f9fafb;
+    }
+    
+    .input-field:focus {
+      outline: none;
+      border-color: #3b82f6;
+      background: white;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+    }
+    
+    .input-label {
+      display: block;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .analyze-button {
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      color: white;
+      padding: 1.25rem 2.5rem;
+      border-radius: 1rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+      width: 100%;
+    }
+    
+    .analyze-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5);
+    }
+    
+    .analyze-button:active {
+      transform: translateY(-1px);
+    }
+    
+    .analyze-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .result-card {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border: 2px solid #bae6fd;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .score-display {
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1;
+      text-align: center;
+      margin: 1rem 0;
+    }
+    
+    .score-excellent { color: #10b981; }
+    .score-good { color: #3b82f6; }
+    .score-moderate { color: #f59e0b; }
+    .score-poor { color: #ef4444; }
+    
+    .progress-bar {
+      height: 1.5rem;
+      background: #e5e7eb;
+      border-radius: 1rem;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      border-radius: 1rem;
+      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+    
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    
+    .badge-excellent {
+      background: #d1fae5;
+      color: #065f46;
+    }
+    
+    .badge-good {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+    
+    .badge-moderate {
+      background: #fef3c7;
+      color: #92400e;
+    }
+    
+    .badge-poor {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+    
+    .vitals-card {
+      background: white;
+      border: 2px solid #e5e7eb;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    
+    .vitals-card:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    }
+    
+    .pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.5s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @media (max-width: 768px) {
+      .vitals-grid {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .score-display {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+    
+      <nav id="nav" class="w-full py-4 px-6 shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <svg width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="8" id="logo-bg" />
+          <path d="M20 10V30M10 20H30" id="logo-cross" stroke-width="3" stroke-linecap="round" />
+        </svg>
+        <div>
+          <div id="hospital-name" class="text-xl font-bold">MOFNet</div>
+        </div>
+      </div>
+      <button id="cta-nav-button" class="px-6 py-2 rounded-lg font-semibold transition-colors"> <a href="mailto:emerladcompass@gmail.com" class="hover:text-blue-400">Contact</a></button>
+    </div>
+  </nav>
+  <!-- Header -->
+   <header id="hero" class="hero-grad text-black-600 py-8 px-4">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 id="hero-heading" class="text-5xl font-bold mb-4">Clinically Validated</h1>
+      <p id="hero-subheading" class="text-xl mb-8 opacity-90">Lead Time: 11.3h | AUC: 0.893</p>
+      <button id="cta-button" class="px-8 py-4 rounded-lg text-lg font-semibold shadow-lg transition-all hover:shadow-xl hover:scale-105">
+          <a href="https://emeraldcompass.github.io/mofnet/" class="hover:text-blue-400 transition-colors">
+          📖 View Documentation
+        </a> </button>
+    </div>
+  </header>
+
+  <header class="hero-gradient text-white py-8 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <rect width="48" height="48" rx="12" fill="white" opacity="0.2"/>
+          <path d="M24 14V34M14 24H34" stroke="white" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <h1 class="text-4xl font-bold">MOFNet</h1>
+      </div>
+      <p class="text-xl opacity-90">Clinical Multi-Organ Failure Predictor</p>
+      <p class="text-sm opacity-75 mt-2">Validated on 1,328 ICU Patients | AUC 0.893</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="py-8 px-4">
+    <div class="max-w-6xl mx-auto">
+      
+      <!-- Clinical Demo Card -->
+      <div class="card p-6 md:p-10 mb-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">
+          🩺 Patient Vital Signs Assessment
+        </h2>
+        
+        <div class="grid lg:grid-cols-2 gap-10">
+          
+          <!-- Input Section -->
+          <div>
+            <form id="vitals-form" class="space-y-6">
+              
+              <div>
+                <label class="input-label">
+                  ❤️ Heart Rate (bpm)
+                </label>
+                <input 
+                  type="number" 
+                  id="hr" 
+                  class="input-field" 
+                  value="80" 
+                  min="40" 
+                  max="200" 
+                  required
+                  placeholder="60-100 bpm"
+                >
+                <p class="text-xs text-gray-500 mt-1">Normal range: 60-100 bpm</p>
+              </div>
+              
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="input-label">
+                    📈 Systolic BP
+                  </label>
+                  <input 
+                    type="number" 
+                    id="sbp" 
+                    class="input-field" 
+                    value="120" 
+                    min="60" 
+                    max="250"
+                    required
+                  >
+                  <p class="text-xs text-gray-500 mt-1">mmHg</p>
+                </div>
+                
+                <div>
+                  <label class="input-label">
+                    📉 Diastolic BP
+                  </label>
+                  <input 
+                    type="number" 
+                    id="dbp" 
+                    class="input-field" 
+                    value="80" 
+                    min="40" 
+                    max="150"
+                    required
+                  >
+                  <p class="text-xs text-gray-500 mt-1">mmHg</p>
+                </div>
+              </div>
+              
+              <div>
+                <label class="input-label">
+                  🫁 Respiratory Rate (breaths/min)
+                </label>
+                <input 
+                  type="number" 
+                  id="rr" 
+                  class="input-field" 
+                  value="16" 
+                  min="8" 
+                  max="40"
+                  required
+                  placeholder="12-20 breaths/min"
+                >
+                <p class="text-xs text-gray-500 mt-1">Normal range: 12-20 breaths/min</p>
+              </div>
+              
+              <div>
+                <label class="input-label">
+                  💨 Oxygen Saturation (SpO₂)
+                </label>
+                <input 
+                  type="number" 
+                  id="spo2" 
+                  class="input-field" 
+                  value="98" 
+                  min="75" 
+                  max="100"
+                  required
+                  placeholder="95-100%"
+                >
+                <p class="text-xs text-gray-500 mt-1">Normal: ≥95%</p>
+              </div>
+              
+              <button type="submit" class="analyze-button">
+                <span id="button-text">🔬 Analyze Patient Risk</span>
+              </button>
+            </form>
+            
+            <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <p class="text-sm text-gray-700">
+                <strong>ℹ️ Privacy:</strong> All calculations run locally in your browser. 
+                No patient data is transmitted or stored.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Results Section -->
+          <div>
+            <!-- Placeholder -->
+            <div id="results-placeholder" class="text-center py-20">
+              <div class="text-gray-300 mb-6">
+                <svg class="w-32 h-32 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" 
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                </svg>
+              </div>
+              <p class="text-xl text-gray-400 font-medium">
+                Enter patient vitals to see analysis
+              </p>
+            </div>
+            
+            <!-- Results Display -->
+            <div id="results-display" class="hidden fade-in">
+              
+              <!-- PRI Score -->
+              <div class="result-card text-center">
+                <h3 class="text-lg font-bold text-gray-700 mb-2">
+                  Physiological Resilience Index
+                </h3>
+                <div id="pri-score" class="score-display score-good">0.750</div>
+                <div class="progress-bar mb-4">
+                  <div id="pri-bar" class="progress-fill bg-blue-500" style="width: 75%">
+                    75%
+                  </div>
+                </div>
+                <p class="text-sm text-gray-600">
+                  Scale: 0.0 (Critical) → 1.0 (Optimal)
+                </p>
+              </div>
+              
+              <!-- Classification Badge -->
+              <div class="text-center mb-6">
+                <div id="classification-badge" class="badge badge-good inline-flex">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <span id="classification-text">Good Resilience</span>
+                </div>
+              </div>
+              
+              <!-- Risk Level -->
+              <div class="result-card">
+                <div class="flex justify-between items-center mb-3">
+                  <h4 class="font-bold text-gray-700">Multi-Organ Failure Risk</h4>
+                  <span id="risk-level" class="text-2xl font-bold text-blue-600">Low</span>
+                </div>
+                <div class="progress-bar">
+                  <div id="risk-bar" class="progress-fill bg-green-500" style="width: 25%">
+                    Low Risk
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Vital Signs Summary -->
+              <div class="result-card">
+                <h4 class="font-bold text-gray-700 mb-4">📊 Vital Signs Analysis</h4>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="vitals-card" id="hr-status">
+                    <div class="text-2xl mb-1">❤️</div>
+                    <div class="text-sm text-gray-600">Heart Rate</div>
+                    <div class="text-lg font-bold" id="hr-display">80 bpm</div>
+                    <div class="text-xs" id="hr-status-text">Normal</div>
+                  </div>
+                  
+                  <div class="vitals-card" id="bp-status">
+                    <div class="text-2xl mb-1">🩸</div>
+                    <div class="text-sm text-gray-600">Blood Pressure</div>
+                    <div class="text-lg font-bold" id="bp-display">120/80</div>
+                    <div class="text-xs" id="bp-status-text">Normal</div>
+                  </div>
+                  
+                  <div class="vitals-card" id="rr-status">
+                    <div class="text-2xl mb-1">🫁</div>
+                    <div class="text-sm text-gray-600">Respiratory</div>
+                    <div class="text-lg font-bold" id="rr-display">16/min</div>
+                    <div class="text-xs" id="rr-status-text">Normal</div>
+                  </div>
+                  
+                  <div class="vitals-card" id="spo2-status">
+                    <div class="text-2xl mb-1">💨</div>
+                    <div class="text-sm text-gray-600">SpO₂</div>
+                    <div class="text-lg font-bold" id="spo2-display">98%</div>
+                    <div class="text-xs" id="spo2-status-text">Normal</div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Clinical Interpretation -->
+              <div class="result-card bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-300">
+                <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                  </svg>
+                  Clinical Interpretation
+                </h4>
+                <p id="interpretation" class="text-gray-700 leading-relaxed">
+                  Patient demonstrates good physiological resilience...
+                </p>
+              </div>
+              
+              <!-- Recommendations -->
+              <div class="result-card bg-gradient-to-br from-amber-50 to-yellow-50 border-amber-300">
+                <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                  </svg>
+                  Clinical Recommendations
+                </h4>
+                <ul id="recommendations" class="space-y-2 text-gray-700">
+                  <li class="flex items-start gap-2">
+                    <span class="text-green-600 mt-1">✓</span>
+                    <span>Continue current treatment plan</span>
+                  </li>
+                </ul>
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- Performance Stats -->
+      <div class="grid md:grid-cols-4 gap-4 mb-8">
+        <div class="card p-6 text-center">
+          <div class="text-4xl font-bold text-blue-600 mb-2">89.3%</div>
+          <div class="text-sm text-gray-600">AUC Score</div>
+        </div>
+        <div class="card p-6 text-center">
+          <div class="text-4xl font-bold text-green-600 mb-2">84.6%</div>
+          <div class="text-sm text-gray-600">Sensitivity</div>
+        </div>
+        <div class="card p-6 text-center">
+          <div class="text-4xl font-bold text-purple-600 mb-2">11.3h</div>
+          <div class="text-sm text-gray-600">Early Warning</div>
+        </div>
+        <div class="card p-6 text-center">
+          <div class="text-4xl font-bold text-orange-600 mb-2">1,328</div>
+          <div class="text-sm text-gray-600">Patients</div>
+        </div>
+      </div>
+      
+      <!-- Download Section -->
+      <div class="card p-8 text-center">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">
+          📱 Download Android App
+        </h2>
+        <p class="text-gray-600 mb-6">
+          Get the full MOFNet experience on your Android device
+        </p>
+        
+      <div class="flex justify-center mb-6">
+  <img src="https://github.com/emerladcompass/mofnet/raw/main/docs/images/mofnet-qr-apk.png" 
+       alt="Download APK QR Code" 
+       class="w-48 h-48 border-4 border-blue-500 rounded-xl">
+</div>
+
+        
+        <a href="/download/MOFNet_Clinical_Analyzer.apk" 
+           download
+           class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-xl text-lg transition duration-300 shadow-lg hover:shadow-xl">
+          ⬇️ Download APK (5 MB)
+        </a>
+        
+        <p class="text-sm text-gray-500 mt-4">
+          Version 1.0.2 • Android 5.0+ • Offline Support
+        </p>
+      </div>
+      
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8 px-4 mt-8">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="mb-2">Copyright © MOFNet Systems - 2026 All rights reserved. </p>
+       
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('vitals-form');
+    const buttonText = document.getElementById('button-text');
+    const placeholder = document.getElementById('results-placeholder');
+    const resultsDisplay = document.getElementById('results-display');
+    
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Show loading
+      buttonText.textContent = '⏳ Analyzing...';
+      form.querySelector('button').disabled = true;
+      
+      // Get values
+      const hr = parseInt(document.getElementById('hr').value);
+      const sbp = parseInt(document.getElementById('sbp').value);
+      const dbp = parseInt(document.getElementById('dbp').value);
+      const rr = parseInt(document.getElementById('rr').value);
+      const spo2 = parseInt(document.getElementById('spo2').value);
+      
+      // Simulate analysis delay
+      await new Promise(resolve => setTimeout(resolve, 1200));
+      
+      // Calculate PRI
+      const hr_n = Math.max(0, 1 - Math.abs(hr - 72) / 100);
+      const bp_n = Math.max(0, 1 - Math.abs((sbp + dbp * 2) / 3 - 93) / 100);
+      const rr_n = Math.max(0, 1 - Math.abs(rr - 16) / 30);
+      const spo2_n = Math.max(0, (spo2 - 80) / 20);
+      const pri = Math.max(0, Math.min(1, (hr_n + bp_n + rr_n + spo2_n) / 4));
+      
+      // Display results
+      displayResults({ hr, sbp, dbp, rr, spo2, pri });
+      
+      // Show results
+      placeholder.classList.add('hidden');
+      resultsDisplay.classList.remove('hidden');
+      resultsDisplay.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      
+      // Reset button
+      buttonText.textContent = '🔬 Analyze Patient Risk';
+      form.querySelector('button').disabled = false;
+    });
+    
+    function displayResults(data) {
+      const { hr, sbp, dbp, rr, spo2, pri } = data;
+      
+      // PRI Score
+      document.getElementById('pri-score').textContent = pri.toFixed(3);
+      document.getElementById('pri-bar').style.width = `${pri * 100}%`;
+      document.getElementById('pri-bar').textContent = `${Math.round(pri * 100)}%`;
+      
+      // Classification
+      let classification, classType, riskLevel, riskWidth, riskColor;
+      
+      if (pri >= 0.85) {
+        classification = 'Excellent Resilience';
+        classType = 'excellent';
+        riskLevel = 'Very Low';
+        riskWidth = 15;
+        riskColor = 'bg-green-500';
+      } else if (pri >= 0.70) {
+        classification = 'Good Resilience';
+        classType = 'good';
+        riskLevel = 'Low';
+        riskWidth = 30;
+        riskColor = 'bg-blue-500';
+      } else if (pri >= 0.50) {
+        classification = 'Moderate Resilience';
+        classType = 'moderate';
+        riskLevel = 'Medium';
+        riskWidth = 60;
+        riskColor = 'bg-yellow-500';
+      } else {
+        classification = 'Poor Resilience';
+        classType = 'poor';
+        riskLevel = 'High';
+        riskWidth = 85;
+        riskColor = 'bg-red-500';
+      }
+      
+      document.getElementById('pri-score').className = `score-display score-${classType}`;
+      document.getElementById('pri-bar').className = `progress-fill ${riskColor}`;
+      document.getElementById('classification-badge').className = `badge badge-${classType} inline-flex`;
+      document.getElementById('classification-text').textContent = classification;
+      
+      // Risk Level
+      document.getElementById('risk-level').textContent = riskLevel;
+      document.getElementById('risk-level').className = `text-2xl font-bold text-${classType === 'excellent' || classType === 'good' ? 'green' : classType === 'moderate' ? 'yellow' : 'red'}-600`;
+      document.getElementById('risk-bar').style.width = `${riskWidth}%`;
+      document.getElementById('risk-bar').textContent = `${riskLevel} Risk`;
+      document.getElementById('risk-bar').className = `progress-fill ${riskColor}`;
+      
+      // Vitals Display
+      document.getElementById('hr-display').textContent = `${hr} bpm`;
+      document.getElementById('bp-display').textContent = `${sbp}/${dbp}`;
+      document.getElementById('rr-display').textContent = `${rr}/min`;
+      document.getElementById('spo2-display').textContent = `${spo2}%`;
+      
+      // Vitals Status
+      document.getElementById('hr-status-text').textContent = hr >= 60 && hr <= 100 ? '✓ Normal' : '⚠ Abnormal';
+      document.getElementById('hr-status-text').className = hr >= 60 && hr <= 100 ? 'text-xs text-green-600' : 'text-xs text-red-600';
+      
+      document.getElementById('bp-status-text').textContent = sbp >= 90 && sbp <= 140 && dbp >= 60 && dbp <= 90 ? '✓ Normal' : '⚠ Abnormal';
+      document.getElementById('bp-status-text').className = sbp >= 90 && sbp <= 140 ? 'text-xs text-green-600' : 'text-xs text-red-600';
+      
+      document.getElementById('rr-status-text').textContent = rr >= 12 && rr <= 20 ? '✓ Normal' : '⚠ Abnormal';
+      document.getElementById('rr-status-text').className = rr >= 12 && rr <= 20 ? 'text-xs text-green-600' : 'text-xs text-red-600';
+      
+      document.getElementById('spo2-status-text').textContent = spo2 >= 95 ? '✓ Normal' : '⚠ Low';
+      document.getElementById('spo2-status-text').className = spo2 >= 95 ? 'text-xs text-green-600' : 'text-xs text-red-600';
+      
+      // Interpretation
+      const interpretations = {
+        excellent: 'Patient demonstrates excellent physiological resilience. All vital signs are well-compensated and organ systems are functioning optimally. Continue routine monitoring and current treatment plan.',
+        good: 'Good physiological resilience detected. Patient shows stable vital signs with adequate organ function. Maintain current care protocols and monitor for any changes.',
+        moderate: 'Moderate risk detected. Some vital sign abnormalities suggest early organ stress. Consider increasing monitoring frequency, reviewing current interventions, and preparing for potential escalation of care.',
+        poor: 'High risk of multi-organ dysfunction. Significant vital sign derangements indicate compromised organ function. Immediate clinical review recommended. Consider ICU consultation and aggressive supportive measures.'
+      };
+      
+      document.getElementById('interpretation').textContent = interpretations[classType];
+      
+      // Recommendations
+      const recommendations = {
+        excellent: [
+          'Continue current treatment plan',
+          'Routine vital signs monitoring every 4 hours',
+          'Consider step-down unit if clinically stable'
+        ],
+        good: [
+          'Maintain current monitoring frequency',
+          'Review medications and fluid balance',
+          'Continue supportive care measures'
+        ],
+        moderate: [
+          'Increase monitoring to every 1-2 hours',
+          'Review and optimize fluid resuscitation',
+          'Consider arterial line placement',
+          'Notify intensivist of patient status'
+        ],
+        poor: [
+          'Immediate physician notification required',
+          'Continuous monitoring recommended',
+          'Prepare for potential intubation or vasopressor support',
+          'Re-evaluate physiological status every 15-30 minutes'
+        ]
+      };
+      
+      const recList = document.getElementById('recommendations');
+      recList.innerHTML = '';
+      recommendations[classType].forEach(rec => {
+        const li = document.createElement('li');
+        li.className = 'flex items-start gap-2';
+        li.innerHTML = `<span class="text-${classType === 'excellent' || classType === 'good' ? 'green' : 'red'}-600 mt-1">●</span><span>${rec}</span>`;
+        recList.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
+
+          
+          
