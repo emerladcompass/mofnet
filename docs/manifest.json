@@ -2,14 +2,14 @@
   "name": "MOFNet Clinical Analyzer",
   "short_name": "MOFNet",
   "description": "Network-based ICU monitoring system predicting multi-organ failure 11.3 hours earlier",
-  "start_url": "/mofnet/",
-  "scope": "/mofnet/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#003399",
   "orientation": "portrait-primary",
   "dir": "ltr",
-  "lang": "en-US",
+  "lang": "en",
   "icons": [
     {
       "src": "/android/android-launchericon-48-48.png",
@@ -53,5 +53,9 @@
       "label": "MOFNet Clinical Dashboard"
     }
   ],
-  "categories": ["medical", "health", "productivity"]
+  "categories": [
+    "medical",
+    "health",
+    "productivity"
+  ]
 }
