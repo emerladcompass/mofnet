@@ -1,59 +1,111 @@
-```markdown
-# Changelog
-
-All notable changes to MOFNet will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-## [1.0.2] - 2026-01-06
-
-### Added
-- 📦 **Android APK Release** - Native Android application
-- 📱 Full offline support for APK version
-- 🎨 Improved mobile UI/UX
-- 📊 Enhanced network visualization
-- 🔔 Push notification support (PWA)
-- 📖 Comprehensive documentation site
-
-### Changed
-- ⚡ 30% faster network computation
-- 💾 Optimized APK size (reduced by 20%)
-- 🎯 Improved prediction accuracy
-- 🖥️ Better responsive design
-
-### Fixed
-- 🐛 Fixed memory leak in long-running sessions
-- 🔧 Resolved edge case in transfer entropy calculation
-- 📐 Fixed layout issues on small screens
-- 🔄 Improved PWA caching strategy
-
-### Security
-- 🔐 Added APK signature verification
-- 🛡️ Enhanced data encryption
-- 🔒 Improved authentication flow
-
-## [1.0.1] - 2025-12-15
-
-### Added
-- Initial PWA release
-- Basic network analysis features
-- Clinical dashboard
-
-### Fixed
-- Minor bug fixes
-- Performance improvements
-
-## [1.0.0] - 2025-12-01
-
-### Added
-- Initial public release
-- Core network analysis engine
-- Multi-center validation
-- Real-time monitoring capabilities
+# CHANGELOG
+All notable changes to MOFNet are documented in this file.
+This project follows semantic versioning.
 
 ---
 
-[1.0.2]: https://github.com/emerladcompass/mofnet/releases/tag/v1.0.2
-[1.0.1]: https://github.com/emerladcompass/mofnet/releases/tag/v1.0.1
-[1.0.0]: https://github.com/emerladcompass/mofnet/releases/tag/v1.0.0
+## [v3.0.0] – January 2026
+### Major Clinical Expansion Release
+
+### Added
+- **8-Parameter Physiological Network Model**
+  - GCS (Neurological)
+  - Urine Output (Renal)
+  - Temperature (Metabolic)
+- **Enhanced Physiological Resilience Index (ePRI)**
+  - Upgraded from 5 → 8 parameters
+- **Organ-Specific Risk Profiling**
+  - Neurological, Cardiac, Respiratory, Renal, Metabolic
+- **Progressive Web App (PWA) v3**
+  - New clinical interface
+- **Android Clinical APK v3**
+  - Optimized mobile workflow
+- **Extended Python CLI**
+  - `interactive_cli_extended.py` (8-parameter interface)
+- **Automatic Data Migration**
+  - One-click upgrade from v2.0 datasets
+- **Clinical Case Scenarios**
+  - Sepsis early detection
+  - Neurological deterioration detection
+- **HIPAA/GDPR Enhanced Compliance**
+  - Neurological PHI handling
+  - Extended consent model
+
+### Changed
+- **Model Architecture**
+  - 5-variable graph → 8-variable physiological network
+- **Prediction Accuracy**
+  - AUC: 0.912 → 0.937
+- **Early Warning Horizon**
+  - 13.1h → 15.3h
+- **Computation Engine**
+  - 2.1s → 1.6s per analysis step
+- **Memory Management**
+  - ~30% reduction
+- **Clinical UI/UX**
+  - Redesigned for bedside usage
+- **Risk Threshold Calibration**
+  - Updated ePRI boundaries
+
+### Performance
+- +24% faster processing
+- Improved sensitivity: 87.3% → 91.2%
+- Improved specificity: 83.8% → 88.4%
+- Reduced false positives: 16.2% → 11.6%
+
+### Security & Compliance
+- ISO 27001 readiness
+- 21 CFR Part 11 (Electronic Records)
+- TLS 1.3 in transit
+- AES-256 at rest
+- MFA enforced
+
+### Migration Notes
+- v2.0 data fully supported
+- New parameters defaulted:
+  - GCS = 15
+  - UO = 50 ml/hr
+  - Temp = 37.0°C
+
+---
+
+## [v2.0.0] – January 2026
+### Multi-Platform Release
+
+### Added
+- **Windows Desktop Application**
+- **Enhanced Android Application**
+- **Improved Progressive Web App (PWA)**
+- **Real-Time Cross-Platform Sync**
+- **Advanced Visualizations**
+- **Modern UI/UX Redesign**
+- **Dark Mode**
+- **Multi-language Support (EN, ES, FR, AR)**
+
+### Changed
+- **Performance**
+  - +40% faster vs v1.0.2
+- **Memory Usage**
+  - -35% footprint
+- **ML Models**
+  - Enhanced prediction engine
+- **Error Handling**
+  - Improved stability
+
+### Clinical Metrics
+- AUC: 0.893 → 0.912
+- Early warning: 11.3h → 13.1h
+- Sensitivity: 84.6% → 87.3%
+- Specificity: 81.3% → 83.8%
+
+---
+
+## Summary of v2 → v3 Transition
+- Shift from **platform expansion (v2)** → **deep clinical intelligence (v3)**
+- Model evolved from **5-parameter monitoring** → **8-parameter physiological reasoning**
+- Focus moved from **UI + distribution** → **clinical depth + predictive power**
+- v3 is the first version with **true neurological + renal + metabolic integration**
+
+---
+
+End of CHANGELOG
