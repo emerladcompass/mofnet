@@ -3,3 +3,10 @@
 # ==================== Android APK Management ====================
 *.apk                          # تجاهل كل APK افتراضياً
 !docs/download/*.apk           # استثناء: APK في docs/download/
+
+# ==================== docs/download/ Directory ====================
+# السماح بكل محتويات docs/download/ (ملفات التحميل الرسمية)
+!docs/download/
+
+# مجلد scripts/
+scripts/
