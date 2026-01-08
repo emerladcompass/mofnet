@@ -1661,68 +1661,12 @@ Have a success story with MOFNet? We'd love to hear it!
 
 **MOFNet v2.0.0** | Released January 2026
 
-<div align="center">
-
-![MOFNet Logo](https://img.shields.io/badge/MOFNet-Network--Based_MOF_Prediction-2563eb?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMiA3TDEyIDEyTDIyIDdMMTIgMloiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0yIDEyTDEyIDE3TDIyIDEyIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4=)
-
-<!-- Version and Status -->
-[![Version](https://img.shields.io/badge/version-2.0.0-blue?style=flat-square)](https://github.com/emerladcompass/mofnet/releases)
-[![Python](https://img.shields.io/badge/python-3.8+-blue?style=flat-square&logo=python&logoColor=white)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](./LICENSE)
-[![Status](https://img.shields.io/badge/status-active-success?style=flat-square)]()
-
-<!-- DOI and Citation -->
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18158628.svg)](https://doi.org/10.5281/zenodo.18158628)
-[![ORCID](https://img.shields.io/badge/ORCID-0009--0003--8903--0029-a6ce39?style=flat-square&logo=orcid&logoColor=white)](https://orcid.org/0009-0003-8903-0029)
-
-<!-- Documentation and Links -->
-[![Documentation](https://img.shields.io/badge/docs-online-success?style=flat-square&logo=readthedocs&logoColor=white)](https://mofnet-v2.netlify.app/)
-[![Website](https://img.shields.io/badge/website-mofnet.netlify.app-blue?style=flat-square&logo=netlify&logoColor=white)](https://mofnet-v2.netlify.app/)
-
-<!-- Repository Stats -->
-[![GitHub Stars](https://img.shields.io/github/stars/emerladcompass/mofnet?style=flat-square&logo=github)](https://github.com/emerladcompass/mofnet/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/emerladcompass/mofnet?style=flat-square&logo=github)](https://github.com/emerladcompass/mofnet/network/members)
-[![GitHub Issues](https://img.shields.io/github/issues/emerladcompass/mofnet?style=flat-square&logo=github)](https://github.com/emerladcompass/mofnet/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/emerladcompass/mofnet?style=flat-square&logo=github)](https://github.com/emerladcompass/mofnet/pulls)
-
-<!-- Build and Quality -->
-[![Build Status](https://img.shields.io/badge/build-passing-success?style=flat-square&logo=github-actions)](https://github.com/emerladcompass/mofnet/actions)
-[![Code Coverage](https://img.shields.io/badge/coverage-87%25-green?style=flat-square&logo=codecov)](https://github.com/emerladcompass/mofnet)
-[![Code Quality](https://img.shields.io/badge/code%20quality-A-brightgreen?style=flat-square&logo=codacy)](https://github.com/emerladcompass/mofnet)
-
-<!-- Downloads and Usage -->
-[![PyPI Downloads](https://img.shields.io/badge/downloads-1.2k%2Fmonth-blue?style=flat-square&logo=pypi&logoColor=white)](https://pypi.org/project/mofnet/)
-[![GitHub Downloads](https://img.shields.io/github/downloads/emerladcompass/mofnet/total?style=flat-square&logo=github)](https://github.com/emerladcompass/mofnet/releases)
-[![Contributors](https://img.shields.io/github/contributors/emerladcompass/mofnet?style=flat-square&logo=github)](https://github.com/emerladcompass/mofnet/graphs/contributors)
-
-<!-- Social and Community -->
-[![Twitter Follow](https://img.shields.io/twitter/follow/mofnet?style=flat-square&logo=twitter&logoColor=white&color=1DA1F2)](https://twitter.com/mofnet)
-[![Discord](https://img.shields.io/badge/discord-join%20chat-7289da?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/mofnet)
-
-<!-- Clinical Performance Badges -->
-[![AUC Score](https://img.shields.io/badge/AUC-0.893-success?style=flat-square&logo=chartdotjs)](https://github.com/emerladcompass/mofnet)
-[![Sensitivity](https://img.shields.io/badge/sensitivity-84.6%25-blue?style=flat-square)](https://github.com/emerladcompass/mofnet)
-[![Specificity](https://img.shields.io/badge/specificity-81.3%25-blue?style=flat-square)](https://github.com/emerladcompass/mofnet)
-[![Early Warning](https://img.shields.io/badge/early%20warning-11.3%20hours-orange?style=flat-square&logo=clock)](https://github.com/emerladcompass/mofnet)
-
-<!-- Platforms -->
-[![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macOS%20%7C%20windows-lightgrey?style=flat-square)](https://github.com/emerladcompass/mofnet)
-[![Docker](https://img.shields.io/badge/docker-supported-2496ED?style=flat-square&logo=docker&logoColor=white)](https://hub.docker.com/r/mofnet/mofnet)
-
-<!-- PWA Badge -->
-[![PWA](https://img.shields.io/badge/PWA-ready-success?style=flat-square&logo=pwa&logoColor=white)](https://mofnet-v2.netlify.app/)
-[![Installable](https://img.shields.io/badge/installable-yes-blue?style=flat-square&logo=google-chrome)](https://mofnet-v2.netlify.app/)
-
-**Network-Based Early Warning System for Multi-Organ Failure in Intensive Care Units**
-
----
-
 *"The network is the patient. The patient is the network."*
 
 </div>
-```
 
 ---
+
 
 
 
