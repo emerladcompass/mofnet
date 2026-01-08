@@ -1,10 +1,3 @@
----
-layout: default
-title: MOFNet Documentation
-description: Multi-Organ Failure Network Clinical Documentation System
-nav_order: 1
----
-
 # MOFNet v2.0 Documentation
 
 Welcome to the official documentation for **MOFNet v2.0** - Next-Generation Network-Based Early Warning System for Multi-Organ Failure in Intensive Care Units.
