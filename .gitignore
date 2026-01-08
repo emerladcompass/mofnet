@@ -1,13 +1,74 @@
-# Build files
-build/
-dist/
-*.egg-info/
+# ==================== ملفات حسابات/بيانات حساسة ====================
+*.json                    # ملفات بيانات (استثناء: manifest.json محدد يدوياً)
+!manifest.json            # استثناء فقط manifest.json
+*.csv                     # بيانات مرضى حقيقية
+*.pkl                     # نماذج ML محلية
+*.h5                      # نماذج Keras محلية
+*.model                   # نماذج محلية
+*.data                    # بيانات محلية
+*.log                     # سجلات محلية
+*.db                      # قواعد بيانات محلية
+*.sqlite                  # SQLite محلي
+*.env                     # متغيرات بيئة
+.env.local                # متغيرات بيئة محلية
+*.key                     # مفاتيح
+*.pem                     # شهادات
+*.cer                     # شهادات
+*.crt                     # شهادات
+config.yaml               # تكوينات محلية
+config_local.yaml         # تكوينات محلية
+secrets.ini               # أسرار
+credentials.json          # بيانات اعتماد
 
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
+# ==================== ملفات نظام/مؤقتة ====================
+.trashed-*                # ملفات مهملة
+*.tmp                     # مؤقت
+*.temp                    # مؤقت
+*.swp                     # vim swap
+*~                        # backup
+.DS_Store                 # macOS
+Thumbs.db                 # Windows
+desktop.ini               # Windows
+*.sublime-*               # Sublime Text
+.vscode/                  # VS Code
+.idea/                    # PyCharm
 
-# Temporary files
-*.swp
-*.swo
+# ==================== مجلدات نظام Python ====================
+__pycache__/              # Python cache
+*.py[cod]                 # Python compiled
+*.so                      # Python extensions
+dist/                     # توزيعات Python
+build/                    # بناء Python
+*.egg-info/               # Python egg
+.mypy_cache/              # MyPy
+.pytest_cache/            # Pytest
+.coverage                 # Coverage
+htmlcov/                  # HTML coverage
+.python-version           # Python version
+
+# ==================== بيئات افتراضية ====================
+env/                      # بيئة افتراضية
+venv/                     # بيئة افتراضية
+ENV/                      # بيئة افتراضية
+.env/                     # بيئة افتراضية
+virtualenv/               # بيئة افتراضية
+.venv/                    # بيئة افتراضية
+
+# ==================== ملفات المشروع المؤقتة ====================
+download/                 # ملفات تحميل مؤقتة
+*.base64                  # صور مشفرة محلياً
+test_output/              # إخراج الاختبارات
+tmp/                      # مجلد مؤقت
+temp/                     # مجلد مؤقت
+uploads/                  # ملفات مرفوعة
+*.session                 # جلسات
+
+# ==================== ملفات التطوير ====================
+.ipynb_checkpoints        # Jupyter checkpoints
+*.ipynb                   # Jupyter notebooks (حفظ في notebooks/)
+!notebooks/*.ipynb        # استثناء notebooks الرسمية
+
+# ==================== Android/Termux ====================
+termux/                   # إعدادات Termux
+.android/                 # إعدادات Android
+.local/                   # ملفات محلية
