@@ -1,5 +1,0 @@
-__version__ = "1.0.2"
-__author__ = "Samir Baladi"
-__email__ = "emerladcompass@gmail.com"
-__license__ = "MIT"
-__copyright__ = "Copyright 2024, MOFNet Project"

@@ -1,6 +1,0 @@
-# المتطلبات الأساسية فقط
-# numpy و pandas سنثبتهما عبر pkg
-
-# مكتبات Python خفيفة
-scikit-learn
-matplotlib
