@@ -239,11 +239,11 @@ monitor.start()
 
 <table>
 <tr>
-<td align="center" width="50%">
+<td align="center" width="25%">
 
 ### 🌐 Progressive Web App
 
-<img src="./docs/images/mofnet-v3-qr-pwa.png" alt="PWA QR" width="200">
+<img src="./docs/images/mofnet-v3-qr-pwa.png" alt="PWA QR" width="150">
 
 **Recommended - Full 8-Parameter Support**
 
@@ -255,11 +255,11 @@ monitor.start()
 [Install PWA →](https://mofnet.netlify.app/)
 
 </td>
-<td align="center" width="50%">
+<td align="center" width="25%">
 
 ### 📱 Android APK v3.0
 
-<img src="./docs/images/mofnet-v3-qr-apk.png" alt="APK QR" width="200">
+<img src="./docs/images/mofnet-v3-qr-apk.png" alt="APK QR" width="150">
 
 **Native 8-Parameter Interface**
 
@@ -271,8 +271,52 @@ monitor.start()
 [Download APK v3.0 →](https://github.com/emerladcompass/mofnet/raw/main/docs/download/MOFNet_Clinical_v3.apk)
 
 </td>
+<td align="center" width="25%">
+
+### 🪟 Windows Desktop
+
+<img src="./docs/images/mofnet-v3-qr-windows.png" alt="Windows QR" width="150">
+
+**v3.1 - Coming Q2 2026**
+
+🔜 Windows 10/11 native  
+🔜 Full offline functionality  
+🔜 System tray integration  
+🔜 Multi-monitor support
+
+[Notify Me →](https://mofnet.netlify.app/#windows-notify)
+
+</td>
+<td align="center" width="25%">
+
+###  iOS App
+
+<img src="./docs/images/mofnet-v3-qr-ios.png" alt="iOS QR" width="150">
+
+**v3.1 - Coming Q2 2026**
+
+🔜 App Store submission  
+🔜 iPhone/iPad optimized  
+🔜 HealthKit integration  
+🔜 Face ID/Touch ID
+
+[Notify Me →](https://mofnet.netlify.app/#ios-notify)
+
+</td>
 </tr>
 </table>
+
+---
+
+### 📊 Platform Comparison
+
+| Platform | Status | 8-Parameter | Offline | Updates | EMR Integration |
+|----------|--------|-------------|---------|---------|-----------------|
+| 🌐 PWA | ✅ Available | ✅ Full Support | ✅ Yes | Auto | 🔜 Planned |
+| 🤖 Android | ✅ Available | ✅ Full Support | ✅ Yes | Manual | 🔜 Planned |
+| 🪟 Windows | 🔜 Q2 2026 | ✅ Full Support | ✅ Yes | Auto | 🔜 Planned |
+|  iOS | 🔜 Q2 2026 | ✅ Full Support | ✅ Yes | App Store | 🔜 Planned |
+| 🐍 Python API | ✅ v3.0.0 | ✅ Full Support | ✅ Yes | pip | ✅ Available |
 
 ---
 
