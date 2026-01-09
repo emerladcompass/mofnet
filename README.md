@@ -9,15 +9,6 @@
 [![Python](https://img.shields.io/badge/python-3.8+-blue?style=flat-square&logo=python&logoColor=white)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](./LICENSE)
 [![Status](https://img.shields.io/badge/status-active-success?style=flat-square)]()
-
-## 📚 Resources
-
-- 🌐 **Website:** [mofnet.netlify.app](https://mofnet.netlify.app/)
-- 📖 **Documentation:** [emerladcompass.github.io/mofnet](https://emerladcompass.github.io/mofnet/)
-- 🐙 **GitHub:** [github.com/emerladcompass/mofnet](https://github.com/emerladcompass/mofnet)
-- 🦊 **GitLab Mirror:** [gitlab.com/emeraldcompass/mofnet](https://gitlab.com/emeraldcompass/mofnet)
-- 📦 **Download APK:** [MOFNet Clinical v3.0](https://github.com/emerladcompass/mofnet/raw/main/docs/download/MOFNet_Clinical_v3.apk)
-
   
 <!-- DOI and Citation -->
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18158628.svg)](https://doi.org/10.5281/zenodo.18158628)
@@ -60,6 +51,15 @@
 **Network-Based Early Warning System for Multi-Organ Failure in Intensive Care Units**
 
 </div>
+
+---
+## 📚 Resources
+
+- 🌐 **Website:** [mofnet.netlify.app](https://mofnet.netlify.app/)
+- 📖 **Documentation:** [emerladcompass.github.io/mofnet](https://emerladcompass.github.io/mofnet/)
+- 🐙 **GitHub:** [github.com/emerladcompass/mofnet](https://github.com/emerladcompass/mofnet)
+- 🦊 **GitLab Mirror:** [gitlab.com/emeraldcompass/mofnet](https://gitlab.com/emeraldcompass/mofnet)
+- 📦 **Download APK:** [MOFNet Clinical v3.0](https://github.com/emerladcompass/mofnet/raw/main/docs/download/MOFNet_Clinical_v3.apk)
 
 ---
 
