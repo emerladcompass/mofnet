@@ -300,9 +300,6 @@ monitor.start()
 🔜 HealthKit integration  
 🔜 Face ID/Touch ID
 
-[Download  Windows Desktop v3.0 →](https://github.com/emerladcompass/mofnet/raw/main/docs/download/MOFNet.msixbundle)
-
-</td>
 </tr>
 </table>
 
