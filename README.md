@@ -284,7 +284,7 @@ monitor.start()
 🔜 System tray integration  
 🔜 Multi-monitor support
 
-[Notify Me →](https://mofnet.netlify.app/#windows-notify)
+[Download  Windows Desktop v3.0 →](https://github.com/emerladcompass/mofnet/raw/main/docs/download/MOFNet.msixbundle)
 
 </td>
 <td align="center" width="25%">
@@ -300,7 +300,7 @@ monitor.start()
 🔜 HealthKit integration  
 🔜 Face ID/Touch ID
 
-[Notify Me →](https://mofnet.netlify.app/#ios-notify)
+[Download  Windows Desktop v3.0 →](https://github.com/emerladcompass/mofnet/raw/main/docs/download/MOFNet.msixbundle)
 
 </td>
 </tr>
