@@ -243,7 +243,7 @@ monitor.start()
 
 ### 🌐 Progressive Web App
 
-<img src="./docs/images/mofnet-v3-qr-pwa.png" alt="PWA QR" width="25%">
+<img src="./docs/images/mofnet-v3-qr-pwa.png" alt="PWA QR" width="150">
 
 **Recommended - Full 8-Parameter Support**
 
